@@ -64,6 +64,10 @@ private heroes:Heroe[] = [
     getHerores():Heroe[]{
         return this.heroes
     }
+
+    getHeroe(idx:string){
+        return this.heroes[idx]
+    }
 }
 
 
