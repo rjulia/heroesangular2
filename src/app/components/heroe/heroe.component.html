@@ -1,23 +1,21 @@
-<h1>{{heroe.nombre}} <small>fecha de aparecion</small></h1>
+<h1>{{heroe.nombre}} <small>{{heroe.aparicion}}</small></h1>
 
 <div class="row">
 
-<div class="col-md-4">
-  <img [src]="heroe.img" alt="">
-  <br>
-  <br>
-  <a  class="btn btn-outline-danger btn-block" [routerLink]="['/heroes']" role="button">Regresar</a>
+  <div class="col-md-4">
+    <img [src]="heroe.img" [alt]="heroe.nombre">
+    <br>
+    <br>
+    <a class="btn btn-outline-danger btn-block" [routerLink]="['/heroes']" role="button">Regresar</a>
 
-</div>
-<div class="col-md-8">
-  <h3>{{heroe.nombre}}</h3>
-  <p>{{heroe.bio}}</p>
-
-  <img *ngIf ="heroe.casa == 'Marvel'" src="http://icon-icons.com/icons2/701/PNG/128/Marvel_icon-icons.com_61667.png" alt="">
-<img *ngIf ="heroe.casa == 'DC'" src=" https://s-media-cache-ak0.pinimg.com/236x/83/41/33/83413355030af04bf225ecd242d18583.jpg" alt="">
-  
-
- 
-</div>
-
+  </div>
+  <div class="col-md-8">
+    <h3>{{heroe.nombre}}</h3>
+    <p>{{heroe.bio}}</p>
+    <div>
+      <img class="img-logo" *ngIf="heroe.casa == 'Marvel'" src="http://icon-icons.com/icons2/701/PNG/128/Marvel_icon-icons.com_61667.png" alt="">
+      <img class="img-logo" *ngIf="heroe.casa == 'DC'" src=" https://s-media-cache-ak0.pinimg.com/236x/83/41/33/83413355030af04bf225ecd242d18583.jpg"
+        alt="">
+    </div>
+  </div>
 </div>
