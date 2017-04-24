@@ -3,20 +3,20 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class HeroesService {
 
-private heroes:Heroe[] = [
+  private heroes: Heroe[] = [
     {
       nombre: "Aquaman",
       bio: "El poder más reconocido de Aquaman es la capacidad telepática para comunicarse con la vida marina, la cual puede convocar a grandes distancias.",
       img: "assets/images/aquaman.png",
       aparicion: "1941-11-01",
-      casa:"DC"
+      casa: "DC"
     },
     {
       nombre: "Batman",
       bio: "Los rasgos principales de Batman se resumen en «destreza física, habilidades deductivas y obsesión». La mayor parte de las características básicas de los cómics han variado por las diferentes interpretaciones que le han dado al personaje.",
       img: "assets/images/batman.png",
       aparicion: "1939-05-01",
-      casa:"DC"
+      casa: "DC"
     },
     {
       nombre: "Daredevil",
@@ -30,7 +30,7 @@ private heroes:Heroe[] = [
       bio: "Su principal poder es su capacidad de aumentar su fuerza hasta niveles prácticamente ilimitados a la vez que aumenta su furia. Dependiendo de qué personalidad de Hulk esté al mando en ese momento (el Hulk Banner es el más débil, pero lo compensa con su inteligencia).",
       img: "assets/images/hulk.png",
       aparicion: "1962-05-01",
-      casa:"Marvel"
+      casa: "Marvel"
     },
     {
       nombre: "Linterna Verde",
@@ -56,25 +56,39 @@ private heroes:Heroe[] = [
   ];
 
 
-    constructor() {
-        console.log("servicio listo para servir");
-        
-    }
+  constructor() {
+    console.log("servicio listo para servir");
 
-    getHerores():Heroe[]{
-        return this.heroes
-    }
+  }
 
-    getHeroe(idx:string){
-        return this.heroes[idx]
+  getHerores(): Heroe[] {
+    return this.heroes
+  }
+
+  getHeroe(idx: string) {
+    return this.heroes[idx]
+  }
+
+  buscarHeroes(termino: string) {
+    let heroesArr: Heroe[] = []
+    termino = termino.toLocaleLowerCase();
+
+    for (let vivos of this.heroes) {
+
+      let nombre = vivos.nombre.toLowerCase();
+      if (nombre.indexOf(termino) >= 0) {
+          heroesArr.push(vivos)
+      }
     }
+    return heroesArr;
+  }
 }
 
 
-export interface  Heroe {
-    nombre:string;
-    bio:string;
-    img: string;
-    aparicion:string;
-    casa: string;
+export interface Heroe {
+  nombre: string;
+  bio: string;
+  img: string;
+  aparicion: string;
+  casa: string;
 }
