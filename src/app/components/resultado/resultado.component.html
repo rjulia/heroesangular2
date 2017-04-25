@@ -1,4 +1,4 @@
-  <h1>Buscador: <small>{{termino}}</small></h1>
+<h1>Buscador: <small>{{termino}}</small></h1>
 <div *ngIf="showMe">
   <div class="card-columns">
     <div class="card animated fadeIn" *ngFor="let heroe of heroes; let i=index ">
@@ -16,6 +16,12 @@
 </div>
 
 <div *ngIf="!showMe">
-  <h3>No se ha hayado resultados</h3>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="alert alert-info" role="alert">
+          No se ha hayado resultados con el termino: {{termino}}
+      </div>
+    </div>
+  </div>
 </div>
 

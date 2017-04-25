@@ -10,7 +10,10 @@ import { Router } from "@angular/router";
 export class HeroesComponent implements OnInit {
 
   heroes:Heroe[] = [];
-
+  onChange(event) {
+    var files = event.srcElement.files;
+    console.log(files[0].name);
+  }
   constructor(private _heroesServicies:HeroesService,
               private _router:Router) {
 

@@ -26,7 +26,7 @@ export class ResultadoComponent implements OnInit {
 
       console.log(this.heroes.length);
       
-      if(params['termino'].length == 0){
+      if(this.heroes.length == 0){
         this.showMe = false
       }else {
         this.showMe = true
